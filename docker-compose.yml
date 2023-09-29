@@ -1,0 +1,15 @@
+version: '3.4'
+services:
+    api:
+      build:
+        context: .
+        target: developer
+      ports:
+          - "80:8080"
+      volumes:
+          - .:/container/:Z
+      environment:
+          - BUILD_NUMBER=nobuildforlocalenv
+      tty: true
+      stdin_open: true
+      privileged: true
